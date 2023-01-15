@@ -1,0 +1,43 @@
+<ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-button [routerLink]="['/form']" expand="block">Nueva Tarea</ion-button>
+      <ion-button type="submit" (click)="authService.SignOut()" expand="block" color="danger">Cerrar sesión</ion-button>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Tareas</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-row class="top">
+        <ion-list>
+          <ion-grid>
+            <ion-row>
+              <ion-col class="col"><p>Tarea</p></ion-col>
+              <ion-col class="col"><p>Descripción</p></ion-col>
+              <ion-col class="col"><p>Fecha</p></ion-col>
+              <ion-col class="col"><p>Acciones</p></ion-col>
+            </ion-row>
+          </ion-grid>
+            <ion-grid *ngFor="let documentTarea of arrayColeccionTareas" (click)="selecTarea(documentTarea)">
+              <ion-row>
+                <ion-col><p>{{documentTarea.data.tarea}}</p></ion-col>
+                <ion-col><p>{{documentTarea.data.descripcion}}</p></ion-col>
+                <ion-col><p>{{documentTarea.data.fecha}}</p></ion-col>
+                <ion-col><ion-button color="secondary" (click)="alert(documentTarea)">✏️</ion-button><ion-button color="success" (click)="clicBotonBorrar()">✅</ion-button></ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-list>
+      </ion-row>
+    </ion-content>
+  </div>

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button [routerLink]="['/dashboard']" fill="clear">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-button>
+    <ion-title>Ingresa una tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="censoForm" (ngSubmit)="guardarCenso()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Usuario</ion-label>
+        <ion-input formControlName="registra" required>{{user}}</ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked">Tarea: </ion-label>
+        <ion-input  placeholder="Nombre de la tarea" formControlName="tarea" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Descripcion: </ion-label>
+        <ion-input placeholder="Descripción" formControlName="descripcion" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Fecha: </ion-label>
+        <ion-input type= 'date' formControlName="fecha"></ion-input>
+      </ion-item>
+
+      <br />
+      <div class="btn-photo img">
+        <ion-button type="submit" color="danger">
+          Terminar formulario
+        </ion-button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
